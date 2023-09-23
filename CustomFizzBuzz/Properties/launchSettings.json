@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CustomFizzBuzz": {
+      "commandName": "Project",
+      "commandLineArgs": "{ \"multiple\": 3, \"word\": \"Fizz\" }"
+    }
+  }
+}
