@@ -69,12 +69,5 @@ public class FizzBuzz
         Console.Write(Environment.NewLine);
     }
     #endregion
-    //using (var httpClient = new HttpClient())
-    //{
-    //    using (var response = await httpClient.GetAsync("https://rich-red-cocoon-veil.cyclic.app/random"))
-    //    {
-    //        string apiResponse = await response.Content.ReadAsStringAsync();
-    //        var a = JsonSerializer.Deserialize<Token>(apiResponse, options);
-    //    }
-    //}
+
 }
