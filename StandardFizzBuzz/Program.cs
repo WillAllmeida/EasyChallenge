@@ -1,13 +1,14 @@
-﻿using TwistedFizzBuzz;
+﻿using System.Text;
+using TwistedFizzBuzz;
 
 string tokens =
-@"
+"""
 [
-    { ""multiple"": 3, ""word"": ""Fizz"" },
-    { ""multiple"": 5, ""word"": ""Buzz"" }
+    { "multiple": 3, "word": "Fizz" },
+    { "multiple": 5, "word": "Buzz" }
 ]
-";
+""";
 
 var fizzBuzz = new FizzBuzz(tokens);
 
-fizzBuzz.ExecuteFizzBuzz("1-100");
+Console.Write(fizzBuzz.ExecuteFizzBuzz("1-100"));

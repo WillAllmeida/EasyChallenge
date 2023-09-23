@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TwistedFizzBuzz;
 
@@ -6,24 +7,21 @@ public class FizzBuzz
 {
     #region Properties
     private readonly Dictionary<int, string> _tokens = new Dictionary<int, string>();
+    public StringBuilder _sb { get; }
     #endregion
 
     #region Constructors
-    public FizzBuzz() { }
 
     public FizzBuzz(string tokens)
     {
         _tokens = tokens.HandleGeneratedTokens();
+        _sb = new StringBuilder();
     }
 
-    public FizzBuzz(Dictionary<int, string> tokens)
-    {
-        _tokens = tokens;
-    }
     #endregion
 
     #region Methods
-    public void ExecuteFizzBuzz(string input)
+    public string ExecuteFizzBuzz(string input)
     {
         var isRangeType = Regex.Match(input, "^(-?\\d+)-(-?\\d+$)");
 
@@ -47,6 +45,8 @@ public class FizzBuzz
             }
         }
 
+        return _sb.ToString();
+
     }
 
     private void ProcessOutput(int number)
@@ -56,17 +56,17 @@ public class FizzBuzz
         {
             if (number % item.Key == 0)
             {
-                Console.Write(item.Value);
+                _sb.Append(item.Value);
                 isMultiple = true;
             }
         }
 
         if (!isMultiple)
         {
-            Console.Write(number);
+            _sb.Append(number);
         }
 
-        Console.Write(Environment.NewLine);
+        _sb.Append(Environment.NewLine);
     }
     #endregion
 
