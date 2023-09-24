@@ -37,11 +37,14 @@ public class FizzBuzz
         }
         else
         {
-            var inputs = input.Split(",").Select(int.Parse).ToArray();
+            var numbers = input.Split(",");
 
-            foreach (var i in inputs)
+            foreach (var num in numbers)
             {
-                ProcessOutput(i);
+                if (int.TryParse(num, out int i))
+                {
+                    ProcessOutput(i);
+                }
             }
         }
 
