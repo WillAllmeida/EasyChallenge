@@ -12,15 +12,20 @@ public class CustomFizzBuzzTests
         { "multiple": 27, "word": "Bar" }
     ]
     """;
+    private readonly FizzBuzz _fizzBuzz;
+
+    public CustomFizzBuzzTests()
+    {
+        _fizzBuzz = new FizzBuzz(_tokens);
+    }
 
     [Fact]
     public void ExecuteMethodShouldProcessARangeAndPrintOutputs()
     {
         //Arrange
-        var instance = new FizzBuzz(_tokens);
 
         //Act
-        string result = instance.ExecuteFizzBuzz("-1-10");
+        string result = _fizzBuzz.ExecuteFizzBuzz("-1-10");
 
         //Assert
         string expectedOutput = string.Format(@"-1{0}FizzBuzzBar{0}1{0}2{0}3{0}4{0}" +
@@ -32,10 +37,9 @@ public class CustomFizzBuzzTests
     public void ExecuteMethodShouldProcessASetAndPrintOutputs()
     {
         //Arrange
-        var instance = new FizzBuzz(_tokens);
 
         //Act
-        string result = instance.ExecuteFizzBuzz("-5, 6, 300, 12, 15");
+        string result = _fizzBuzz.ExecuteFizzBuzz("-5, 6, 300, 12, 15");
 
         //Assert
         string expectedOutput = string.Format(@"Fizz{0}6{0}Fizz{0}12{0}Fizz{0}", Environment.NewLine);
